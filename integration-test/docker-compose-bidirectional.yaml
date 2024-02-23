@@ -40,13 +40,13 @@ services:
     container_name: mm2-ocp-cld
     volumes:
       - ./mm2-bidirectional.properties:/etc/mm2.properties
-      - ../target/kafka-connect-transforms-1.0.jar:/opt/bitnami/kafka/libs/kafka-connect-transforms-1.0.jar
+      - ./kafka-connect-transforms-1.0.jar:/opt/bitnami/kafka/libs/kafka-connect-transforms-1.0.jar
     command: ["/opt/bitnami/kafka/bin/connect-mirror-maker.sh", "/etc/mm2.properties"]
 
   
   kafka-ui:
     container_name: kafka-ui
-    image: provectuslabs/kafka-ui:latest
+    image: gimral/kafka-ui:latest
     environment:
       DYNAMIC_CONFIG_ENABLED: true
       KAFKA_CLUSTERS_0_NAME: ocp
